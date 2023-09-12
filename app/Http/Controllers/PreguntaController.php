@@ -75,11 +75,12 @@ class PreguntaController extends Controller
     public function unaPregunta($id){
         $pregunta = Pregunta::find($id);
         $boton = "boton activado";
+        // Se manda llamar aqui el evento que se creo para activar el botón al jugador
         event(new MessageSent($boton));
 
         return view('preguntas.laPregunta', compact('pregunta'));
     }
-    
+    // Función para cuando la pregunta ya se respondio se cambie estatus y se acabe el juego
     public static function cambioEstatus($id)
     {
 

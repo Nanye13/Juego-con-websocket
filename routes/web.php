@@ -32,11 +32,11 @@ Route::middleware('auth')->group(function () {
     // JUGADORES
     Route::get('clave', [RondaController::class, 'clave'])->name('clave');
     Route::post('ingresar', [RondaController::class, 'ingresar'])->name('ingresar');
+    // ruta donde se registra como van picandole al botón
     Route::post('participaciones', [RondaController::class, 'participacion'])->name('participaciones');
     Route::post('espera',[RondaController::class, 'espera'])->name('espera');
 
     // ADMIN
-
     Route::get('tableroPreguntas',[PreguntaController::class, 'tablero'])->name('tableroPreguntas');
     Route::get('laPregunta/{id_pregunta}',[PreguntaController::class,'unaPregunta'])->name('laPregunta');
     Route::get('estatus/{id_pregunta}',[PreguntaController::class,'cambioEstatus'])->name('estatus');

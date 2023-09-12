@@ -80,7 +80,7 @@ class RondaController extends Controller
 
         return view('jugadores.espera', compact('nombre_equipo', 'equipo_id'));
     }
-
+    // Funcion para registrar en la base de datos el orden en el que van contestando los jugadores
     public function participacion(Request $request)
     {
         $equipo_id = $request->input('equipo_id');
@@ -99,7 +99,7 @@ class RondaController extends Controller
         $nombre = Equipo::where('id', $jugador->equipo_id)->first();
         $nombreJugador = $nombre->nombre;
 
-
+        // Se manda a llamar el evento que le notificara al admin de quien fue el que pico primero 
         event(new Notificar($nombreJugador));
 
         return view('jugadores.esperados', compact('equipo_id', 'nombre_equipo'));

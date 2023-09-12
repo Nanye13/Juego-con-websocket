@@ -46,12 +46,12 @@
                     $('#espera').hide();
 
                     // Funcion para temporizar el tiempo que tiene para picarle al boton
-                    setTimeout(function() {
-                        console.log("Hola Mundo");
-                        $('#tiempo').show();
-                        $('#botonTiempo').show();
-                        $('#boton').hide();
-                    }, 10000);
+                    // setTimeout(function() {
+                    //     console.log("Hola Mundo");
+                    //     $('#tiempo').show();
+                    //     $('#botonTiempo').show();
+                    //     $('#boton').hide();
+                    // }, 10000);
                 })
         }
     </script>

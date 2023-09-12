@@ -9,7 +9,7 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-
+// Evento para notificar que jugador le pico primero y se muestre al admin
 class Notificar implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;

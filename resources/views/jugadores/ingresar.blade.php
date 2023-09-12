@@ -838,7 +838,7 @@
 
 <body class="antialiased">
 
-
+{{-- Vista para entrar al juego --}}
 
     <div class="container">
         <div class="m-5 row justify-content-center align-items-center">
