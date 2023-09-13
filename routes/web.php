@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RondaController;
@@ -28,6 +29,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+
+    Route::resource('preguntas',PreguntaController::class);
+    Route::resource('equipos', EquipoController::class);
 
     // JUGADORES
     Route::get('clave', [RondaController::class, 'clave'])->name('clave');

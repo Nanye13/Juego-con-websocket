@@ -17,6 +17,8 @@ class PreguntaController extends Controller
     public function index()
     {
         //
+        $preguntas = Pregunta::get();
+        return view('preguntas.index', compact('preguntas'));
     }
 
     /**
@@ -25,6 +27,7 @@ class PreguntaController extends Controller
     public function create()
     {
         //
+        return view('preguntas.create');
     }
 
     /**
@@ -33,6 +36,16 @@ class PreguntaController extends Controller
     public function store(Request $request)
     {
         //
+        $pregunta = $request->input('pregunta');
+        $respuesta = $request->input('respuesta');
+
+        Pregunta::create([
+            'pregunta' => $pregunta,
+            'estatus' => '1',
+            'respuestas' => $respuesta
+        ]);
+
+        return redirect()->route('preguntas.index');
     }
 
     /**
@@ -49,6 +62,9 @@ class PreguntaController extends Controller
     public function edit(string $id)
     {
         //
+        $pregunta = Pregunta::find($id);
+
+        return view('preguntas.edit', compact('pregunta'));
     }
 
     /**
@@ -57,6 +73,14 @@ class PreguntaController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $pregunta = $request->input('pregunta');
+        $respuesta = $request->input('respuesta');
+
+        $laPregunta = Pregunta::find($id);
+        $laPregunta->pregunta = $pregunta;
+        $laPregunta->respuestas = $respuesta;
+        $laPregunta->save();
+        return redirect()->route('preguntas.index');
     }
 
     /**
@@ -65,6 +89,11 @@ class PreguntaController extends Controller
     public function destroy(string $id)
     {
         //
+        $pregunta = Pregunta::find($id);
+
+        $pregunta->delete();
+
+        return redirect()->route('preguntas.index');
     }
 
     public function tablero(){
